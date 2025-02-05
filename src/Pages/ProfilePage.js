@@ -27,7 +27,7 @@ const ProfilePage = () => {
   
   useEffect(() => {
     const fetchProfile = async () => {
-      const response = await fetch(`http://localhost:4000/profile/${loggedInUsername}`);
+      const response = await fetch(`https://blogappbackend-tsas.onrender.com/profile/${loggedInUsername}`);
       if (response.ok) {
         const profileData = await response.json();
         setProfile(profileData);
@@ -69,7 +69,7 @@ const ProfilePage = () => {
 
   const handleSaveProfile = async () => {
     setError("");
-    const response = await fetch(`http://localhost:4000/profile/${loggedInUsername}`, {
+    const response = await fetch(`https://blogappbackend-tsas.onrender.com/profile/${loggedInUsername}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

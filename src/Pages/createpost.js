@@ -22,7 +22,7 @@ const CreatePost = () => {
         setMessage('');
 
         try {
-            const response = await axios.post('http://localhost:4000/createpost', { title, content, category });
+            const response = await axios.post('https://blogappbackend-tsas.onrender.com/createpost', { title, content, category });
             setMessage('🎉 Post created successfully! 🎉');
             navigate('/posts');
         } catch (error) {

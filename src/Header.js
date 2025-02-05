@@ -7,7 +7,7 @@ const HomePage = () => {
 
   const [posts, setPosts] = useState([]);
   useEffect(() => {
-    axios.get('http://localhost:4000/posts')
+    axios.get('https://blogappbackend-tsas.onrender.com/posts')
         .then(response => setPosts(response.data))
         .catch(error => console.error('Error fetching posts:', error));
   }, []);

@@ -15,13 +15,13 @@ const MyBlog = () => {
     }, []);
 
     const fetchPosts = () => {
-        axios.get('http://localhost:4000/posts')
+        axios.get('https://blogappbackend-tsas.onrender.com/posts')
             .then(response => setPosts(response.data))
             .catch(error => console.error('Error fetching posts:', error));
     };
 
     const handleDelete = (postId) => {
-        axios.delete(`http://localhost:4000/posts/${postId}`)
+        axios.delete(`https://blogappbackend-tsas.onrender.com/posts/${postId}`)
             .then(() => {
                 setPosts(posts.filter(post => post._id !== postId)); 
             })
@@ -34,7 +34,7 @@ const MyBlog = () => {
     };
 
     const handleUpdate = () => {
-        axios.put(`http://localhost:4000/posts/${editingPost._id}`, { content: updatedContent })
+        axios.put(`https://blogappbackend-tsas.onrender.com/posts/${editingPost._id}`, { content: updatedContent })
             .then(() => {
                 setPosts(posts.map(post => post._id === editingPost._id ? { ...post, content: updatedContent } : post));
                 setEditingPost(null);
@@ -48,7 +48,7 @@ const MyBlog = () => {
             alert('Please enter an email address to subscribe.');
             return;
         }
-        axios.post(`http://localhost:4000/posts/${postId}/subscribe`, { email })
+        axios.post(`https://blogappbackend-tsas.onrender.com/posts/${postId}/subscribe`, { email })
             .then(() => {
                 alert('Subscribed successfully!');
                 setSubscribedPostId(postId);
